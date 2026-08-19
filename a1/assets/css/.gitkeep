@@ -1,0 +1,36 @@
+<!-- Home Page Carousel -->
+<div id="bookCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+  <div class="carousel-inner rounded shadow-sm">
+    <div class="carousel-item active">
+      <!-- Ensure you use the provided static images here -->
+      <img src="assets/images/slide1.jpg" class="d-block w-100" alt="Slide 1"> 
+    </div>
+    <!-- Add the other 3 carousel items here -->
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#bookCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#bookCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Featured Books Grid -->
+<h2 class="mb-4"><span class="material-icons text-primary align-middle">favorite</span> Featured Books</h2>
+<div class="row g-4">
+  <!-- Book Card -->
+  <div class="col-12 col-md-6 col-lg-3">
+    <div class="card h-100 bg-dark text-white border-secondary">
+      <img src="assets/images/covers/midnight-library.jpg" class="card-img-top" alt="The Midnight Library">
+      <div class="card-body bg-white text-dark">
+        <h5 class="card-title">The Midnight Library</h5>
+        <p class="card-text small text-muted">Fiction • Matt Haig</p>
+        <p class="card-text fw-bold">$24.99</p>
+        <span class="badge bg-success rounded-pill">Available</span>
+      </div>
+    </div>
+  </div>
+  
+</div>
