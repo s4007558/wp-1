@@ -1,0 +1,198 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* IMAGE VALIDATION AND PREVIEW */
+
+    const imageInput = document.getElementById("image_path");
+    const imagePreview = document.getElementById("imagePreview");
+    const imagePreviewContainer =
+        document.getElementById("imagePreviewContainer");
+    const imageError = document.getElementById("imageError");
+
+    if (imageInput) {
+
+        imageInput.addEventListener("change", function () {
+
+            const file = imageInput.files[0];
+
+            imageError.textContent = "";
+            imagePreviewContainer.hidden = true;
+            imagePreview.src = "";
+
+            if (!file) {
+                return;
+            }
+
+            const fileName = file.name.toLowerCase();
+
+            const allowedExtensions = [
+                ".jpg",
+                ".jpeg",
+                ".png",
+                ".gif",
+                ".webp"
+            ];
+
+            const validExtension = allowedExtensions.some(
+                function (extension) {
+                    return fileName.endsWith(extension);
+                }
+            );
+
+            if (!validExtension) {
+
+                imageError.textContent =
+                    "Only JPG, JPEG, PNG, GIF and WEBP images are allowed.";
+
+                imageInput.value = "";
+
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.addEventListener("load", function () {
+
+                imagePreview.src = reader.result;
+                imagePreviewContainer.hidden = false;
+
+            });
+
+            reader.readAsDataURL(file);
+        });
+    }
+
+
+    /* BOOK STATUS FILTER */
+
+    const filterButtons =
+        document.querySelectorAll(".filter-button");
+
+    const bookRows =
+        document.querySelectorAll("#booksTable tr");
+
+    if (filterButtons.length > 0 && bookRows.length > 0) {
+
+        filterButtons.forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                const selectedFilter =
+                    button.getAttribute("data-filter");
+
+                filterButtons.forEach(function (currentButton) {
+
+                    currentButton.classList.remove("btn-primary");
+                    currentButton.classList.add(
+                        "btn-outline-primary"
+                    );
+
+                });
+
+                button.classList.remove(
+                    "btn-outline-primary"
+                );
+
+                button.classList.add("btn-primary");
+
+                bookRows.forEach(function (row) {
+
+                    const rowStatus =
+                        row.getAttribute("data-status");
+
+                    if (
+                        selectedFilter === "all" ||
+                        rowStatus === selectedFilter
+                    ) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+
+                });
+
+            });
+
+        });
+    }
+
+
+    /* GALLERY MODAL */
+
+    const imageModal =
+        document.getElementById("imageModal");
+
+    if (imageModal) {
+
+        imageModal.addEventListener(
+            "show.bs.modal",
+            function (event) {
+
+                const button = event.relatedTarget;
+
+                if (!button) {
+                    return;
+                }
+
+                const imagePath =
+                    button.getAttribute("data-image");
+
+                const imageTitle =
+                    button.getAttribute("data-title");
+
+                const modalImage =
+                    document.getElementById("modalImage");
+
+                const modalTitle =
+                    document.getElementById("imageModalLabel");
+
+                modalImage.src = imagePath;
+                modalImage.alt = imageTitle;
+                modalTitle.textContent = imageTitle;
+
+            }
+        );
+    }
+
+
+    /* ADD BOOK FORM */
+
+    const bookForm =
+        document.getElementById("bookForm");
+
+    if (bookForm) {
+
+        bookForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                const message =
+                    document.getElementById("formMessage");
+
+                if (!bookForm.checkValidity()) {
+
+                    message.textContent =
+                        "Please complete all required fields.";
+
+                    message.className =
+                        "mt-3 text-danger";
+
+                    bookForm.classList.add(
+                        "was-validated"
+                    );
+
+                    return;
+                }
+
+                message.textContent =
+                    "Book information has been validated successfully.";
+
+                message.className =
+                    "mt-3 text-success";
+
+            }
+        );
+    }
+
+});
