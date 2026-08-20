@@ -2,504 +2,303 @@
    BOOKVERSE
 ========================================= */
 
-
-/* ---------- VARIABLES ---------- */
-
 :root {
-
     --teal: #0d9488;
     --dark-teal: #0f766e;
-
     --orange: #d97706;
-
     --amber: #fbbf24;
-
     --green: #10b981;
-
     --slate: #475569;
-
     --dark: #1f2937;
-
     --grey: #6b7280;
-
     --light: #f9fafb;
-
     --white: #ffffff;
-
     --border: #e5e7eb;
-
 }
-
-
-/* ---------- GENERAL ---------- */
 
 * {
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-
     margin: 0;
-
     font-family: "Elms Sans", Arial, sans-serif;
-
     background-color: var(--light);
-
     color: var(--dark);
-
     line-height: 1.6;
-
 }
-
 
 h1,
 h2,
 h3 {
-
     font-family: "Righteous", sans-serif;
-
 }
-
 
 img {
-
     max-width: 100%;
-
 }
-
 
 /* ---------- NAVBAR ---------- */
 
 .navbar {
-
     background-color: var(--dark-teal);
-
     padding: 15px 0;
-
 }
-
 
 .navbar-brand {
-
     display: flex;
-
     align-items: center;
-
     gap: 8px;
-
     font-family: "Righteous", sans-serif;
-
     font-size: 28px;
-
 }
-
 
 .navbar-brand .material-icons {
-
     color: var(--amber);
-
     font-size: 30px;
-
 }
-
 
 .nav-link {
-
-    color: white !important;
-
+    color: var(--white) !important;
     font-weight: 600;
-
     margin-left: 8px;
-
     padding: 8px 14px !important;
-
     border-radius: 6px;
-
 }
-
 
 .nav-link:hover,
 .nav-link.active {
-
     background-color: var(--teal);
-
 }
 
+.nav-link:focus-visible,
+.btn:focus-visible,
+.navbar-toggler:focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 3px;
+}
 
 /* ---------- HERO ---------- */
 
 .hero {
-
     padding: 80px 0;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #ecfdf5,
-            #f9fafb
-        );
-
+    background: linear-gradient(135deg, #ecfdf5, #f9fafb);
 }
-
 
 .eyebrow {
-
     color: var(--orange);
-
     font-weight: 700;
-
     font-size: 14px;
-
     letter-spacing: 2px;
-
     margin-bottom: 10px;
-
 }
-
 
 .hero h1 {
-
     font-size: clamp(45px, 6vw, 72px);
-
     line-height: 1.05;
-
     margin-bottom: 25px;
-
 }
-
 
 .hero h1 span {
-
     color: var(--teal);
-
 }
-
 
 .hero-description {
-
     color: var(--grey);
-
     font-size: 18px;
-
     max-width: 550px;
-
     margin-bottom: 30px;
-
 }
-
 
 .hero-buttons {
-
     display: flex;
-
     gap: 12px;
-
     flex-wrap: wrap;
-
 }
-
 
 /* ---------- BUTTONS ---------- */
 
-.btn-primary-custom {
-
-    background-color: var(--teal);
-
-    border: 2px solid var(--teal);
-
-    color: white;
-
+.btn-primary-custom,
+.btn-outline-custom {
     padding: 12px 24px;
-
     font-weight: 700;
-
     border-radius: 7px;
-
 }
 
+.btn-primary-custom {
+    background-color: var(--teal);
+    border: 2px solid var(--teal);
+    color: var(--white);
+}
 
 .btn-primary-custom:hover {
-
     background-color: var(--dark-teal);
-
     border-color: var(--dark-teal);
-
-    color: white;
-
+    color: var(--white);
 }
-
 
 .btn-outline-custom {
-
     border: 2px solid var(--teal);
-
     color: var(--teal);
-
-    padding: 12px 24px;
-
-    font-weight: 700;
-
-    border-radius: 7px;
-
 }
-
 
 .btn-outline-custom:hover {
-
     background-color: var(--teal);
-
-    color: white;
-
+    color: var(--white);
 }
-
 
 /* ---------- CAROUSEL ---------- */
 
 .carousel {
-
     border-radius: 18px;
-
     overflow: hidden;
-
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.15);
-
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
-
 
 .carousel img {
-
     width: 100%;
-
     height: 430px;
-
     object-fit: cover;
-
+    display: block;
 }
 
-
-/* ---------- FEATURED ---------- */
+/* ---------- FEATURED BOOKS ---------- */
 
 .featured {
-
     padding: 80px 0;
-
 }
-
 
 .section-title {
-
     margin-bottom: 40px;
-
 }
-
 
 .section-title h2 {
-
     font-size: 42px;
-
     margin-bottom: 8px;
-
 }
-
 
 .section-title p:last-child {
-
     color: var(--grey);
-
 }
-
 
 /* ---------- BOOK CARDS ---------- */
 
 .book-card {
-
     height: 100%;
-
-    background-color: white;
-
+    background-color: var(--white);
     border: 1px solid var(--border);
-
     border-radius: 14px;
-
     overflow: hidden;
-
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.06);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 
 .book-card:hover {
-
     transform: translateY(-6px);
-
-    box-shadow:
-        0 18px 35px rgba(0, 0, 0, 0.12);
-
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
 }
-
 
 .book-card > img {
-
     width: 100%;
-
     height: 330px;
-
     object-fit: cover;
-
     display: block;
-
 }
-
 
 .book-card-content {
-
     padding: 22px;
-
 }
-
 
 .book-card h3 {
-
     font-size: 25px;
-
     margin-top: 14px;
-
     margin-bottom: 5px;
-
 }
-
 
 .book-card p {
-
     color: var(--grey);
-
     margin-bottom: 10px;
-
 }
-
 
 .book-card strong {
-
     color: var(--dark-teal);
-
     font-size: 18px;
-
 }
-
 
 /* ---------- STATUS ---------- */
 
 .status {
-
     display: inline-block;
-
     padding: 5px 12px;
-
     border-radius: 50px;
-
     font-size: 12px;
-
     font-weight: 700;
-
 }
-
 
 .status.available {
-
     background-color: #d1fae5;
-
     color: #047857;
-
 }
-
 
 .status.reserved {
-
     background-color: #fef3c7;
-
     color: #b45309;
-
 }
-
 
 .status.sold {
-
     background-color: #e2e8f0;
-
-    color: #475569;
-
+    color: var(--slate);
 }
-
 
 /* ---------- FOOTER ---------- */
 
 footer {
-
     background-color: var(--dark-teal);
-
-    color: white;
-
+    color: var(--white);
     padding: 25px 0;
-
 }
-
 
 footer p {
-
     margin: 0;
-
 }
-
 
 /* ---------- MOBILE ---------- */
 
 @media (max-width: 767px) {
-
     .hero {
-
         padding: 55px 0;
-
     }
-
 
     .hero h1 {
-
         font-size: 45px;
-
     }
-
 
     .carousel img {
-
         height: 300px;
-
     }
-
 
     .featured {
-
         padding: 55px 0;
-
     }
-
 
     .section-title h2 {
-
         font-size: 34px;
+    }
+}
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
 }
