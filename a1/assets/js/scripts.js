@@ -1,319 +1,123 @@
 "use strict";
 
-
-/*
-    BOOKVERSE - SHARED JAVASCRIPT
-*/
-
-
 document.addEventListener("DOMContentLoaded", function () {
-
     setupBookFilters();
-
     setupGalleryModal();
-
     setupImageValidation();
-
     setupAddBookForm();
-
 });
 
-
-/*
-    BOOK STATUS FILTER
-    Uses the required data-status attribute.
-*/
-
 function setupBookFilters() {
+    const buttons = document.querySelectorAll("[data-filter]");
+    const rows = document.querySelectorAll("#booksTableBody tr");
 
-    const filterButtons = document.querySelectorAll("[data-filter]");
-    const bookRows = document.querySelectorAll("#booksTableBody tr");
-
-    if (filterButtons.length === 0 || bookRows.length === 0) {
-        return;
-    }
-
-    filterButtons.forEach(function (button) {
-
+    buttons.forEach(function (button) {
         button.addEventListener("click", function () {
+            const filter = button.dataset.filter;
 
-            const selectedFilter = button.dataset.filter;
-
-            filterButtons.forEach(function (item) {
-                item.classList.remove("active");
+            buttons.forEach(function (item) {
+                item.classList.remove("active", "btn-primary-custom");
+                item.classList.add("btn-outline-custom");
             });
 
-            button.classList.add("active");
+            button.classList.add("active", "btn-primary-custom");
+            button.classList.remove("btn-outline-custom");
 
-            bookRows.forEach(function (row) {
-
-                const bookStatus = row.dataset.status;
-
-                if (
-                    selectedFilter === "All" ||
-                    bookStatus === selectedFilter
-                ) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
-
+            rows.forEach(function (row) {
+                row.classList.toggle(
+                    "d-none",
+                    filter !== "all" && row.dataset.status !== filter
+                );
             });
-
         });
-
     });
-
 }
-
-
-/*
-    GALLERY BOOTSTRAP MODAL
-*/
 
 function setupGalleryModal() {
+    const modalImage = document.querySelector("#modalImage");
+    const modalTitle = document.querySelector("#imageModalLabel");
 
-    const galleryModal = document.getElementById("galleryModal");
-
-    if (!galleryModal) {
-        return;
-    }
-
-    galleryModal.addEventListener(
-        "show.bs.modal",
-        function (event) {
-
-            const clickedButton = event.relatedTarget;
-
-            if (!clickedButton) {
-                return;
-            }
-
-            const imagePath = clickedButton.dataset.image;
-            const imageTitle = clickedButton.dataset.title;
-
-            const modalImage =
-                document.getElementById("modalBookImage");
-
-            const modalTitle =
-                document.getElementById("galleryModalLabel");
-
-            if (modalImage) {
-                modalImage.src = imagePath;
-                modalImage.alt = imageTitle + " cover";
-            }
-
-            if (modalTitle) {
-                modalTitle.textContent = imageTitle;
-            }
-
-        }
-    );
-
+    document.querySelectorAll("[data-gallery-image]").forEach(function (item) {
+        item.addEventListener("click", function () {
+            modalImage.src = item.dataset.galleryImage;
+            modalImage.alt = item.dataset.galleryTitle + " book cover";
+            modalTitle.textContent = item.dataset.galleryTitle;
+        });
+    });
 }
 
-
-/*
-    IMAGE FILE EXTENSION VALIDATION
-*/
-
 function setupImageValidation() {
-
-    const imageInput = document.getElementById("image_path");
-    const imageError = document.getElementById("imageError");
+    const imageInput = document.querySelector("#bookImage");
+    const imageError = document.querySelector("#imageError");
 
     if (!imageInput) {
         return;
     }
 
     imageInput.addEventListener("change", function () {
+        const file = imageInput.files[0];
 
-        const selectedFile = imageInput.files[0];
-
-        if (!selectedFile) {
-            return;
-        }
-
-        const fileName = selectedFile.name;
-
-        const extension = fileName
-            .split(".")
-            .pop()
-            .toLowerCase();
-
-        const allowedExtensions = [
-            "jpg",
-            "jpeg",
-            "png",
-            "gif",
-            "webp"
-        ];
-
-        if (!allowedExtensions.includes(extension)) {
-
-            imageInput.value = "";
-
-            if (imageError) {
-                imageError.textContent =
-                    "Invalid file type. Please select a JPG, JPEG, PNG, GIF or WEBP image.";
-            }
-
+        if (!file) {
             hideImagePreview();
-
             return;
         }
 
-        if (imageError) {
-            imageError.textContent = "";
+        const extension = file.name.split(".").pop().toLowerCase();
+        const validExtensions = ["jpg", "jpeg", "png", "gif"];
+
+        if (!validExtensions.includes(extension)) {
+            imageInput.value = "";
+            imageError.textContent = "Please select a JPG, JPEG, PNG or GIF image.";
+            hideImagePreview();
+            return;
         }
 
-        showImagePreview(selectedFile);
-
+        imageError.textContent = "";
+        showImagePreview(file);
     });
-
 }
 
-
-/*
-    IMAGE PREVIEW
-*/
-
 function showImagePreview(file) {
+    const preview = document.querySelector("#imagePreview");
 
-    const previewContainer =
-        document.getElementById("imagePreviewContainer");
-
-    const previewImage =
-        document.getElementById("imagePreview");
-
-    if (!previewContainer || !previewImage) {
+    if (!preview) {
         return;
     }
 
-    const reader = new FileReader();
-
-    reader.addEventListener("load", function () {
-
-        previewImage.src = reader.result;
-
-        previewContainer.classList.remove("d-none");
-
-    });
-
-    reader.readAsDataURL(file);
-
+    preview.src = URL.createObjectURL(file);
+    preview.classList.remove("d-none");
 }
-
 
 function hideImagePreview() {
+    const preview = document.querySelector("#imagePreview");
 
-    const previewContainer =
-        document.getElementById("imagePreviewContainer");
-
-    const previewImage =
-        document.getElementById("imagePreview");
-
-    if (previewContainer) {
-        previewContainer.classList.add("d-none");
+    if (preview) {
+        preview.src = "";
+        preview.classList.add("d-none");
     }
-
-    if (previewImage) {
-        previewImage.src = "";
-    }
-
 }
 
-
-/*
-    ADD BOOK FORM
-*/
-
 function setupAddBookForm() {
-
-    const form = document.getElementById("addBookForm");
+    const form = document.querySelector("#addBookForm");
+    const message = document.querySelector("#formMessage");
 
     if (!form) {
         return;
     }
 
     form.addEventListener("submit", function (event) {
-
         event.preventDefault();
 
-        const imageInput =
-            document.getElementById("image_path");
-
-        const formMessage =
-            document.getElementById("formMessage");
-
         if (!form.checkValidity()) {
-
             event.stopPropagation();
-
             form.classList.add("was-validated");
-
-            if (formMessage) {
-                formMessage.textContent =
-                    "Please complete all required fields.";
-                formMessage.classList.add("error");
-            }
-
             return;
         }
 
-
-        if (!imageInput || !imageInput.files.length) {
-
-            if (formMessage) {
-                formMessage.textContent =
-                    "Please select a cover image.";
-                formMessage.classList.add("error");
-            }
-
-            return;
-        }
-
-
-        const selectedFile =
-            imageInput.files[0];
-
-        const extension =
-            selectedFile.name
-                .split(".")
-                .pop()
-                .toLowerCase();
-
-        const allowedExtensions = [
-            "jpg",
-            "jpeg",
-            "png",
-            "gif",
-            "webp"
-        ];
-
-
-        if (!allowedExtensions.includes(extension)) {
-
-            if (formMessage) {
-                formMessage.textContent =
-                    "Please select a valid image file.";
-                formMessage.classList.add("error");
-            }
-
-            return;
-        }
-
-
-        if (formMessage) {
-
-            formMessage.textContent =
-                "Book information is valid. No data has been submitted because this is a static Assessment 1 form.";
-
-            formMessage.classList.remove("error");
-            formMessage.classList.add("success");
-
-        }
-
+        message.textContent = "Book added successfully.";
+        message.className = "alert alert-success";
+        form.reset();
+        form.classList.remove("was-validated");
+        hideImagePreview();
     });
-
 }
