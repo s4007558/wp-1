@@ -7,8 +7,8 @@
 |---|---|
 | Joseph Saba | TODO |
 | s4007558 | TODO |
-| GitHub repository URL | TODO |
-| Deployed website URL | TODO |
+| https://github.com/s4007558/wp-1
+| https://jupiter.csit.rmit.edu.au/~s4007558/wp/a1/|
 
 ---
 
@@ -208,11 +208,12 @@ Deployed site links/assets	TODO	TODO
 
 Provide details of your deployed website.
 
-Item	Details
-Deployed website URL	TODO
-Coreteaching server	TODO
-Deployment folder	TODO
-.htaccess location	TODO
+| Item | Details |
+|---|---|
+| Deployed website URL | https://jupiter.csit.rmit.edu.au/~s4007558/wp/a1/ |
+| Coreteaching server | jupiter.csit.rmit.edu.au |
+| Deployment folder | ~/public_html/wp/a1/ |
+| `.htaccess` location | Not used |
 
 The deployed website was tested by opening each page directly and using the navigation links. The carousel, gallery modal, status filters, form validation, and image preview were checked on the deployed version. Asset paths were also checked to confirm that styles, scripts, fonts, and images loaded correctly.
 
