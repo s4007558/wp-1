@@ -1,12 +1,12 @@
-# COSC2446 Web Programming – Assessment 1  
+# COSC2446 Web Programming – Assessment 1
 # BookVerse Online Bookstore Platform
 
 ## Student Details
 
 | Item | Details |
 |---|---|
-| Student name | TODO |
-| Student ID | TODO |
+| Joseph Saba | TODO |
+| s4007558 | TODO |
 | GitHub repository URL | TODO |
 | Deployed website URL | TODO |
 
@@ -57,16 +57,7 @@ TODO: Write your Copilot/AI instructions here in clear bullet points.
 ---
 
 ## 3. Project Overview
-
-Briefly describe the purpose of the BookVerse website.
-
-TODO: In 3–5 sentences, explain:
-
-- what BookVerse is;
-- who the website is for;
-- what users can view or interact with;
-- which technologies were used;
-- whether this is a static or dynamic website.
+BookVerse is a static online bookstore website for browsing and viewing books. Users can browse book information, filter books by status, view book covers in a gallery, and complete an Add Book form. The website uses HTML5, CSS3, Bootstrap 5, JavaScript, Google Fonts, and Material Icons. No backend or database is used for this assessment.
 
 ---
 
@@ -110,53 +101,53 @@ a1/
 
 Complete the table below. Explain how each technology was used in your project.
 
-| Technology | How it was used in this project |
+| Technology | How it was used |
 |---|---|
-| HTML5 | TODO |
-| CSS3 | TODO |
-| Bootstrap 5 | TODO |
-| JavaScript | TODO |
-| Google Fonts | TODO |
-| Material Icons | TODO |
-| GitHub | TODO |
-| Coreteaching server | TODO |
-| AI tools | TODO |
+| HTML5 | Page structure, navigation, tables, gallery, forms, and semantic content |
+| CSS3 | Shared colours, typography, spacing, cards, status labels, and responsive styling |
+| Bootstrap 5 | Responsive layout, navigation, carousel, buttons, grid, table, and modal |
+| JavaScript | Status filters, gallery modal content, image validation, image preview, and form feedback |
+| Google Fonts | Righteous for headings and Elms Sans for body text |
+| Material Icons | Book icon used in the navigation brand |
+| GitHub | Version control and repository hosting |
+| Coreteaching server | Deployment of the completed static website |
+| AI tools | Used for code suggestions, debugging support, and documentation assistance |
+
 
 ## 7. Design and Layout
 
 Based on the assessment document, describe the design and layout choices.
 
-TODO: Explain:
+The website uses teal and amber as its main brand colours. The primary teal colour is used for navigation, buttons, headings, and interactive elements. Amber is used for accents and focus indicators. Righteous is used for headings and the navbar brand, while Elms Sans is used for body text, labels, navigation links, and buttons.
 
-how the required colour palette should be used;
-how to use the required fonts;
-how to use Material Icons;
-how Bootstrap should be used for layout and responsiveness.
+Bootstrap provides the responsive container, grid, navigation, carousel, table, form, and modal components. Material Icons provide a consistent book icon in the navigation brand. The layout adapts to smaller screens using Bootstrap breakpoints and custom responsive CSS.
 
 ## 8. Required Features
 
 Complete the table below by explaining where and how each required feature should be implemented.
 
-Feature	Page	Explanation
-Carousel	index.html	TODO
-Responsive book layout	index.html	TODO
-Book table	books.html	TODO
-Status filter	books.html	TODO
-Gallery grid	gallery.html	TODO
-Bootstrap image modal	gallery.html	TODO
-Add Book form	add.html	TODO
-Image validation	add.html	TODO
-Image preview	add.html	TODO
+| Feature | Page | Explanation |
+|---|---|---|
+| Carousel | `index.html` | Displays four static book images using a Bootstrap carousel |
+| Responsive book layout | `index.html` | Displays featured books in a responsive Bootstrap grid |
+| Book table | `books.html` | Shows book titles, authors, genres, prices, and statuses |
+| Status filter | `books.html` | JavaScript filters rows by book status |
+| Gallery grid | `gallery.html` | Displays book covers in a responsive grid |
+| Bootstrap image modal | `gallery.html` | Opens the selected cover in a Bootstrap modal |
+| Add Book form | `add.html` | Provides all required book information fields |
+| Image validation | `add.html` | Checks the selected file extension using JavaScript |
+| Image preview | `add.html` | Displays a preview of a valid selected image |
 
 ## 9. JavaScript Functionality
 
 Describe the JavaScript features that should be implemented in your website.
 
-JavaScript feature	Page	How it works
-Image extension validation	add.html	TODO
-Image preview	add.html	TODO
-Gallery modal	gallery.html	TODO
-Book status filter	books.html	TODO
+| JavaScript feature | Page | How it works |
+|---|---|---|
+| Image extension validation | `add.html` | Accepts JPG, JPEG, PNG, and GIF files only |
+| Image preview | `add.html` | Creates a temporary object URL and displays the selected image |
+| Gallery modal | `gallery.html` | Copies the selected image and title into the Bootstrap modal |
+| Book status filter | `books.html` | Shows or hides table rows according to their `data-status` value |
 
 ## 10. Form Validation
 
@@ -223,18 +214,14 @@ Coreteaching server	TODO
 Deployment folder	TODO
 .htaccess location	TODO
 
-TODO: In 2–4 sentences, explain how you checked that the deployed website works correctly.
+The deployed website was tested by opening each page directly and using the navigation links. The carousel, gallery modal, status filters, form validation, and image preview were checked on the deployed version. Asset paths were also checked to confirm that styles, scripts, fonts, and images loaded correctly.
 
 ## 14. Git and Development Process
 
 Briefly describe how you used Git during the project.
 
-TODO: Explain:
+Git was used to record progressive development throughout the project. Commits were made after implementing page structure, styling, navigation, gallery functionality, form validation, and JavaScript features. Commit messages describe the changes made and are linked to the relevant records in `process-evidence.md`.
 
-how often you committed changes;
-what types of changes your commits show;
-how your Git history shows progressive development;
-how your commits relate to your process-evidence records.
 
 ## 15. AI Use Declaration
 
