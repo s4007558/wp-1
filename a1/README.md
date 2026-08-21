@@ -5,8 +5,8 @@
 
 | Item | Details |
 |---|---|
-| Joseph Saba | TODO |
-| s4007558 | TODO |
+| Joseph Saba |
+| s4007558 |
 | https://github.com/s4007558/wp-1
 | https://jupiter.csit.rmit.edu.au/~s4007558/wp/a1/|
 
@@ -67,11 +67,10 @@ Complete the table below by describing the purpose of each page.
 
 | File | Purpose |
 |---|---|
-| `index.html` | TODO |
-| `books.html` | TODO |
-| `gallery.html` | TODO |
-| `add.html` | TODO |
-
+| `index.html` | Homepage featuring a Bootstrap carousel and responsive cards for selected books. |
+| `books.html` | Displays all books in a table and allows users to filter them by availability status using JavaScript. |
+| `gallery.html` | Displays book covers in a responsive grid and opens each cover in a Bootstrap modal when selected. |
+| `add.html` | Provides a required form for entering book details, validating the cover image extension, and previewing the selected image. |
 ---
 
 ## 5. Project Folder Structure
