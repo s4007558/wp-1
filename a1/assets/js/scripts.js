@@ -1,5 +1,7 @@
 "use strict";
 
+let previewUrl = "";
+
 document.addEventListener("DOMContentLoaded", function () {
     setupBookFilters();
     setupGalleryModal();
@@ -13,7 +15,7 @@ function setupBookFilters() {
 
     buttons.forEach(function (button) {
         button.addEventListener("click", function () {
-            const filter = button.dataset.filter;
+            const selectedFilter = button.dataset.filter;
 
             buttons.forEach(function (item) {
                 item.classList.remove("active", "btn-primary-custom");
@@ -24,10 +26,11 @@ function setupBookFilters() {
             button.classList.remove("btn-outline-custom");
 
             rows.forEach(function (row) {
-                row.classList.toggle(
-                    "d-none",
-                    filter !== "all" && row.dataset.status !== filter
-                );
+                const matchesFilter =
+                    selectedFilter === "all" ||
+                    row.dataset.status === selectedFilter;
+
+                row.classList.toggle("d-none", !matchesFilter);
             });
         });
     });
@@ -36,12 +39,19 @@ function setupBookFilters() {
 function setupGalleryModal() {
     const modalImage = document.querySelector("#modalImage");
     const modalTitle = document.querySelector("#imageModalLabel");
+    const galleryItems = document.querySelectorAll("[data-gallery-image]");
 
-    document.querySelectorAll("[data-gallery-image]").forEach(function (item) {
+    if (!modalImage || !modalTitle) {
+        return;
+    }
+
+    galleryItems.forEach(function (item) {
         item.addEventListener("click", function () {
+            const title = item.dataset.galleryTitle;
+
             modalImage.src = item.dataset.galleryImage;
-            modalImage.alt = item.dataset.galleryTitle + " book cover";
-            modalTitle.textContent = item.dataset.galleryTitle;
+            modalImage.alt = title + " book cover";
+            modalTitle.textContent = title;
         });
     });
 }
@@ -50,29 +60,32 @@ function setupImageValidation() {
     const imageInput = document.querySelector("#bookImage");
     const imageError = document.querySelector("#imageError");
 
-    if (!imageInput) {
+    if (!imageInput || !imageError) {
         return;
     }
 
     imageInput.addEventListener("change", function () {
         const file = imageInput.files[0];
+        const validExtensions = ["jpg", "jpeg", "png", "gif"];
+
+        imageError.textContent = "";
 
         if (!file) {
             hideImagePreview();
             return;
         }
 
-        const extension = file.name.split(".").pop().toLowerCase();
-        const validExtensions = ["jpg", "jpeg", "png", "gif"];
+        const fileParts = file.name.toLowerCase().split(".");
+        const extension = fileParts[fileParts.length - 1];
 
         if (!validExtensions.includes(extension)) {
             imageInput.value = "";
-            imageError.textContent = "Please select a JPG, JPEG, PNG or GIF image.";
+            imageError.textContent =
+                "Please select a JPG, JPEG, PNG or GIF image.";
             hideImagePreview();
             return;
         }
 
-        imageError.textContent = "";
         showImagePreview(file);
     });
 }
@@ -84,24 +97,36 @@ function showImagePreview(file) {
         return;
     }
 
-    preview.src = URL.createObjectURL(file);
+    if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+    }
+
+    previewUrl = URL.createObjectURL(file);
+    preview.src = previewUrl;
     preview.classList.remove("d-none");
 }
 
 function hideImagePreview() {
     const preview = document.querySelector("#imagePreview");
 
-    if (preview) {
-        preview.src = "";
-        preview.classList.add("d-none");
+    if (!preview) {
+        return;
     }
+
+    if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+        previewUrl = "";
+    }
+
+    preview.src = "";
+    preview.classList.add("d-none");
 }
 
 function setupAddBookForm() {
     const form = document.querySelector("#addBookForm");
     const message = document.querySelector("#formMessage");
 
-    if (!form) {
+    if (!form || !message) {
         return;
     }
 
