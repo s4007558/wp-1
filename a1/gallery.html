@@ -4,47 +4,328 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BookVerse | Gallery</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Elms+Sans:wght@400;500;600;700&family=Righteous&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    >
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Elms+Sans:wght@400;500;600;700&family=Righteous&display=swap"
+    >
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    >
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark"><div class="container">
-    <a class="navbar-brand" href="index.html"><span class="material-icons">menu_book</span> BookVerse</a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="menu"><ul class="navbar-nav ms-auto">
-        <li><a class="nav-link" href="index.html">Home</a></li><li><a class="nav-link" href="books.html">Books</a></li><li><a class="nav-link active" href="gallery.html">Gallery</a></li><li><a class="nav-link" href="add.html">Add Book</a></li>
-    </ul></div>
-</div></nav>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="material-icons" aria-hidden="true">menu_book</span>
+                BookVerse
+            </a>
 
-<main>
-    <section class="page-header"><div class="container"><p class="eyebrow">BOOKVERSE COLLECTION</p><h1>Gallery</h1><p>Click an image to enlarge it.</p></div></section>
-    <section class="py-5"><div class="container"><div class="row g-4">
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/1.png" data-gallery-title="Book 1"><img src="assets/images/covers/1.png" alt="Book 1 cover"></button></div>
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/2.png" data-gallery-title="Book 2"><img src="assets/images/covers/2.png" alt="Book 2 cover"></button></div>
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/3.png" data-gallery-title="Book 3"><img src="assets/images/covers/3.png" alt="Book 3 cover"></button></div>
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/4.png" data-gallery-title="Book 4"><img src="assets/images/covers/4.png" alt="Book 4 cover"></button></div>
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/5.png" data-gallery-title="Book 5"><img src="assets/images/covers/5.png" alt="Book 5 cover"></button></div>
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/6.png" data-gallery-title="Book 6"><img src="assets/images/covers/6.png" alt="Book 6 cover"></button></div>
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/7.png" data-gallery-title="Book 7"><img src="assets/images/covers/7.png" alt="Book 7 cover"></button></div>
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/8.png" data-gallery-title="Book 8"><img src="assets/images/covers/8.png" alt="Book 8 cover"></button></div>
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/9.png" data-gallery-title="Book 9"><img src="assets/images/covers/9.png" alt="Book 9 cover"></button></div>
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/10.png" data-gallery-title="Book 10"><img src="assets/images/covers/10.png" alt="Book 10 cover"></button></div>
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/11.png" data-gallery-title="Book 11"><img src="assets/images/covers/11.png" alt="Book 11 cover"></button></div>
-        <div class="col-6 col-md-4 col-lg-3"><button class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-gallery-image="assets/images/covers/12.png" data-gallery-title="Book 12"><img src="assets/images/covers/12.png" alt="Book 12 cover"></button></div>
-    </div></div></section>
-</main>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainMenu"
+                aria-controls="mainMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content">
-        <div class="modal-header"><h2 id="imageModalLabel" class="modal-title fs-5">Book cover</h2><button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-        <div class="modal-body text-center"><img id="modalImage" class="img-fluid" src="" alt=""></div>
-    </div></div>
-</div>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="books.html">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active"
+                            href="gallery.html"
+                            aria-current="page"
+                        >
+                            Gallery
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add.html">Add Book</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<footer><div class="container d-flex justify-content-between"><p>&copy; 2026 BookVerse</p><p>Joseph Saba</p></div></footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/scripts.js"></script>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <p class="eyebrow">BOOKVERSE COLLECTION</p>
+                <h1>Gallery</h1>
+                <p>Click an image to enlarge it.</p>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/1.png"
+                            data-gallery-title="The Hidden Garden — Amelia Carter"
+                        >
+                            <img
+                                src="assets/images/covers/1.png"
+                                alt="The Hidden Garden by Amelia Carter"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/2.png"
+                            data-gallery-title="Kingdom of Stars — Oliver Bennett"
+                        >
+                            <img
+                                src="assets/images/covers/2.png"
+                                alt="Kingdom of Stars by Oliver Bennett"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/3.png"
+                            data-gallery-title="The Silent Clue — Sophia Mitchell"
+                        >
+                            <img
+                                src="assets/images/covers/3.png"
+                                alt="The Silent Clue by Sophia Mitchell"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/4.png"
+                            data-gallery-title="Beyond the Mountains — Daniel Anderson"
+                        >
+                            <img
+                                src="assets/images/covers/4.png"
+                                alt="Beyond the Mountains by Daniel Anderson"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/5.png"
+                            data-gallery-title="Letters in the Rain — Isabella Morgan"
+                        >
+                            <img
+                                src="assets/images/covers/5.png"
+                                alt="Letters in the Rain by Isabella Morgan"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/6.png"
+                            data-gallery-title="Echoes of the Past — Henry Wilson"
+                        >
+                            <img
+                                src="assets/images/covers/6.png"
+                                alt="Echoes of the Past by Henry Wilson"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/7.png"
+                            data-gallery-title="A Life of Courage — Grace Thompson"
+                        >
+                            <img
+                                src="assets/images/covers/7.png"
+                                alt="A Life of Courage by Grace Thompson"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/8.png"
+                            data-gallery-title="Midnight Warning — Lucas Parker"
+                        >
+                            <img
+                                src="assets/images/covers/8.png"
+                                alt="Midnight Warning by Lucas Parker"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/9.png"
+                            data-gallery-title="Whispers and Words — Emily Roberts"
+                        >
+                            <img
+                                src="assets/images/covers/9.png"
+                                alt="Whispers and Words by Emily Roberts"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/10.png"
+                            data-gallery-title="Roads Less Travelled — James Cooper"
+                        >
+                            <img
+                                src="assets/images/covers/10.png"
+                                alt="Roads Less Travelled by James Cooper"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/11.png"
+                            data-gallery-title="Orbit of Tomorrow — Charlotte Evans"
+                        >
+                            <img
+                                src="assets/images/covers/11.png"
+                                alt="Orbit of Tomorrow by Charlotte Evans"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <button
+                            class="gallery-item"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#imageModal"
+                            data-gallery-image="assets/images/covers/12.png"
+                            data-gallery-title="The Little Blue Kite — William Turner"
+                        >
+                            <img
+                                src="assets/images/covers/12.png"
+                                alt="The Little Blue Kite by William Turner"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div
+        class="modal fade"
+        id="imageModal"
+        tabindex="-1"
+        aria-labelledby="imageModalLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="imageModalLabel">
+                        Book cover
+                    </h2>
+                    <button
+                        class="btn-close"
+                        type="button"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    ></button>
+                </div>
+
+                <div class="modal-body text-center">
+                    <img
+                        id="modalImage"
+                        class="img-fluid"
+                        src=""
+                        alt=""
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container d-flex justify-content-between">
+            <p>&copy; 2026 BookVerse</p>
+            <p>Joseph Saba</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
 </body>
 </html>
